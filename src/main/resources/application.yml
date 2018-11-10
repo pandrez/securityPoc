@@ -1,3 +1,7 @@
+server:
+  port: 12358
+  context-path: /poc/
+
 security:
   basicAuths:
     dcpApi:

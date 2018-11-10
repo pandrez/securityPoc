@@ -1,4 +1,4 @@
-package io.mb.sellercenter.security.auth.model;
+package io.mb.sellercenter.security.auth.basicauth.model;
 
 import lombok.Getter;
 import lombok.Setter;
