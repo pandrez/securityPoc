@@ -12,4 +12,9 @@ public class TestController {
     return "dcp";
   }
 
+  @GetMapping(value = "/internal/cenas", produces = {"application/json"})
+  public String internal() {
+    return "internal";
+  }
+
 }
