@@ -1,0 +1,14 @@
+security:
+  basicAuths:
+    dcpApi:
+      enabled: true
+      pattern: '/api/**'
+      username: foo
+      password: bar
+      role: DCP
+    internalApi:
+      enabled: true
+      pattern: '/internal/**'
+      username: user1
+      password: internal
+      role: INTERNAL
