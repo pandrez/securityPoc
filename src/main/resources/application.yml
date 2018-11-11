@@ -3,16 +3,30 @@ server:
   context-path: /poc/
 
 security:
+  ignored: '/api3/**, /api4/**'
   basicAuths:
     dcpApi:
       enabled: true
-      pattern: '/api/**'
-      username: foo
-      password: bar
-      role: DCP
+      patterns:
+      - pattern: '/api/**'
+        allowedRoles:
+        - role: DCP
+      - pattern: '/api2/**'
+      users:
+      - username: foo
+        password: $2a$04$1OlLP6BsaEopCup0eX0O/uTGn3Xil.9MgLvzQIi1crIy4dFVKFjDW #bar in BCrypt 4 rounds
+        role: DCP
+      - username: foo2
+        password: $2a$04$SQa8kJ20VImohM55Ni1zr.0tyIKmH4c.LwkW2lZ2RNuBnuPZeXloi #bar2 in BCrypt 4 rounds
+        role: DCP
     internalApi:
-      enabled: true
-      pattern: '/internal/**'
-      username: user1
-      password: internal
-      role: INTERNAL
+      enabled: false
+      patterns:
+      - pattern: '/internal/**'
+        allowedRoles:
+        - role: INTERNAL
+      users:
+      - username: user1
+        password: $2a$04$r7QA39WJZfidIiMlwaRftOHH6Q9Djz4JSfy5gQiAFaz4R61Q.ZOku #internal in BCrypt 4 rounds
+        role: INTERNAL
+
