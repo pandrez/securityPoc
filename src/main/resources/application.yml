@@ -5,28 +5,45 @@ server:
 security:
   ignored: '/api3/**, /api4/**'
   basicAuths:
-    dcpApi:
+    openApi:
       enabled: true
-      patterns:
-      - pattern: '/api/**'
+      mainPattern: '/api/**'
+      subPatterns:
+      - pattern: '/api/open1/**'
         allowedRoles:
         - role: DCP
-      - pattern: '/api2/**'
+      - pattern: '/api/open2/**'
       users:
       - username: foo
         password: $2a$04$1OlLP6BsaEopCup0eX0O/uTGn3Xil.9MgLvzQIi1crIy4dFVKFjDW #bar in BCrypt 4 rounds
-        role: DCP
+        roles:
+        - role: DCP
       - username: foo2
         password: $2a$04$SQa8kJ20VImohM55Ni1zr.0tyIKmH4c.LwkW2lZ2RNuBnuPZeXloi #bar2 in BCrypt 4 rounds
-        role: DCP
+        roles:
+        - role: DCP
+      - username: foo3
+        password: $2a$04$SQa8kJ20VImohM55Ni1zr.0tyIKmH4c.LwkW2lZ2RNuBnuPZeXloi #bar2 in BCrypt 4 rounds
+        roles:
+        - role: ERP
     internalApi:
-      enabled: false
-      patterns:
-      - pattern: '/internal/**'
+      enabled: true
+      mainPattern: '/internal/**'
+      subPatterns:
+      - pattern: '/internal/read/**'
         allowedRoles:
-        - role: INTERNAL
+        - role: INTERNAL_READ
+      - pattern: '/internal/write/**'
+        allowedRoles:
+        - role: INTERNAL_WRITE
       users:
       - username: user1
         password: $2a$04$r7QA39WJZfidIiMlwaRftOHH6Q9Djz4JSfy5gQiAFaz4R61Q.ZOku #internal in BCrypt 4 rounds
-        role: INTERNAL
+        roles:
+        - role: INTERNAL_READ
+      - username: user2
+        password: $2a$04$r7QA39WJZfidIiMlwaRftOHH6Q9Djz4JSfy5gQiAFaz4R61Q.ZOku #internal in BCrypt 4 rounds
+        roles:
+        - role: INTERNAL_WRITE
+        - role: INTERNAL_READ
 

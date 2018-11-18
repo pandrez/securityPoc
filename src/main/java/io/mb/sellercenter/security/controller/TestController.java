@@ -7,29 +7,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 
-  @GetMapping(value = "/api/dcp")
+  @GetMapping(value = "/api/open1/dcp")
   public String dcp() {
-    return "dcp";
+    return "open1";
   }
 
-  @GetMapping(value = "/internal/cenas")
-  public String internal() {
-    return "internal";
-  }
-
-  @GetMapping(value = "/api2/dcp")
+  @GetMapping(value = "/api/open2/dcp")
   public String dcp2() {
-    return "dcp2";
+    return "open2";
   }
 
-  @GetMapping(value = "/api3/dcp")
-  public String dcp3() {
-    return "dcp3";
+  @GetMapping(value = "/internal/read/user")
+  public String internalRead() {
+    return "userRead";
   }
 
-  @GetMapping(value = "/api4/dcp")
-  public String dcp4() {
-    return "dcp4";
+  @GetMapping(value = "/internal/write/user")
+  public String internalWrite() {
+    return "userWrite";
   }
 
 }
