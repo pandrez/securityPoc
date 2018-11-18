@@ -1,18 +1,16 @@
 package io.mb.sellercenter.security.auth.basicauth.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Getter
 @Setter
-public class BasicAuthenticationModel {
+public abstract class AbstractBasicAuthenticationModel {
 
   private boolean enabled;
-  private List<PatternModel> patterns = new ArrayList<>();
+  private String mainPattern;
+  private List<PatternModel> subPatterns = new ArrayList<>();
   private List<UserModel> users = new ArrayList<>();
-
-
 }
