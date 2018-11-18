@@ -17,6 +17,11 @@ public class TestController {
     return "open2";
   }
 
+  @GetMapping(value = "/api/open3/dcp")
+  public String dcp3() {
+    return "open3";
+  }
+
   @GetMapping(value = "/internal/read/user")
   public String internalRead() {
     return "userRead";
@@ -25,6 +30,11 @@ public class TestController {
   @GetMapping(value = "/internal/write/user")
   public String internalWrite() {
     return "userWrite";
+  }
+
+  @GetMapping(value = "/internal/free/user")
+  public String internalFree() {
+    return "free";
   }
 
 }

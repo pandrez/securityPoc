@@ -3,7 +3,7 @@ server:
   context-path: /poc/
 
 security:
-  ignored: '/api3/**, /api4/**'
+  ignored: '/api/open3/**, /internal/free/**'
   basicAuths:
     openApi:
       enabled: true
